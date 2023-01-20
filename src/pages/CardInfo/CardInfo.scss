@@ -1,0 +1,291 @@
+.cardInfo {
+    padding-top: 120px;
+    background: url(../../images/artists/artists-bg.jpg) top no-repeat;
+    background-size: contain;
+    min-height: 100vh;
+    margin-bottom: 50px;
+    animation: cardInfo 2s;
+    &__data {
+        line-height: 23px;
+        max-width: 280px;
+        animation: cardInfoData 1s;
+        grid-area: data;
+        &-back {
+            font-size: 18px;
+            line-height: 26px;
+            letter-spacing: 0.05em;
+            color: #ffffff;
+            margin: 0 0 20px auto;
+            padding-left: 16px;
+            position: relative;
+            &::before {
+                content: url(../../images/pagination/prev.svg);
+                position: absolute;
+                top: 1px;
+                left: 0;
+            }
+        }
+        &-text {
+            margin-bottom: 63px;
+            & p:first-child {
+                margin-bottom: 30px;
+            }
+        }
+        &-title {
+            color: white;
+            letter-spacing: 0.05em;
+            margin-bottom: 10px;
+        }
+        &-images {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    &__slider {
+        max-width: 605px;
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(8px);
+        border-radius: 25px;
+        animation: cardInfoSlider 1s;
+        grid-area: slider;
+        &-item {
+            margin: 0 auto;
+            display: block;
+        }
+    }
+    &__pagination {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding-bottom: 20px;
+        &-bullet {
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            border-radius: 50%;
+            &Active {
+                background-color: black;
+                border: 1px solid #fff;
+            }
+        }
+    }
+    &__inner {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        grid-template-areas: "data slider about";
+    }
+    &__about {
+        max-width: 271px;
+        animation: cardInfoAbout 1s;
+        grid-area: about;
+        &-title {
+            font-size: 24px;
+            line-height: 35px;
+            letter-spacing: 0.05em;
+            color: white;
+            margin-bottom: 10px;
+        }
+        &-text {
+            margin-bottom: 35px;
+            & p:first-child {
+                margin-bottom: 25px;
+            }
+        }
+    }
+    &__size {
+        font-family: "Inter";
+        color: #4c5054;
+        margin-bottom: 30px;
+        &-title {
+            margin-bottom: 10px;
+        }
+        & ul {
+            display: flex;
+            gap: 13px;
+        }
+        &-item {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #787d82;
+            border-radius: 50%;
+            transition: all 0.3s;
+            cursor: pointer;
+            z-index: 2;
+            &.active {
+                background-color: #dd0808;
+                color: white;
+            }
+        }
+    }
+    &__price {
+        font-size: 24px;
+        line-height: 35px;
+        letter-spacing: 0.05em;
+        color: #ffffff;
+        margin-bottom: 20px;
+        &-title {
+            font-family: "Inter";
+            color: #4c5054;
+            margin-bottom: 5px;
+            font-size: 16px;
+            line-height: 19px;
+        }
+    }
+    &__purchase {
+        font-family: "Inter";
+        color: #4c5054;
+        margin-bottom: 35px;
+        &-form {
+            display: flex;
+            justify-content: space-between;
+        }
+        &-title {
+            margin-bottom: 13px;
+        }
+        &-input {
+            color: white;
+            width: 46px;
+            height: 46px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
+            font-size: 18px;
+        }
+        &-button {
+            width: 210px;
+            padding: 10px auto;
+            font-size: 18px;
+            color: white;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(8px);
+            border-radius: 23px;
+            transition: all 0.2s;
+        }
+    }
+    &__chart {
+        padding: 10px 52px;
+        font-size: 18px;
+        color: white;
+        background: rgba(255, 255, 255, 0.02);
+        backdrop-filter: blur(8px);
+        border-radius: 23px;
+        transition: all 0.2s;
+    }
+}
+
+@keyframes cardInfo {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes cardInfoData {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes cardInfoAbout {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes cardInfoSlider {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1245px) {
+    .cardInfo {
+        background-size: auto;
+        &__inner {
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-areas:
+                "slider slider"
+                "data about";
+            justify-content: center;
+        }
+        &__slider {
+            margin: 0 auto;
+        }
+        &__data {
+            margin-left: auto;
+            max-width: 400px;
+        }
+        &__about {
+            margin-right: auto;
+            max-width: 400px;
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .cardInfo__size-item:hover {
+        background-color: #dd0808;
+        color: white;
+    }
+    .cardInfo__chart:hover,
+    .cardInfo__purchase-button:hover {
+        background-color: #fff;
+        color: black;
+    }
+}
+
+@media (max-width: 665px) {
+    .cardInfo__slider {
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cardInfo {
+        &__inner {
+            grid-template-columns: repeat(1, 1fr);
+            grid-template-areas:
+                "data"
+                "slider"
+                "about";
+        }
+        &__data {
+            margin: 0 auto;
+            text-align: center;
+            &-back {
+                margin: 0 0 20px 0;
+            }
+        }
+        &__about {
+            margin: 0 auto;
+            text-align: center;
+        }
+        &__size ul {
+            justify-content: center;
+        }
+    }
+}
+
+@media (max-width: 425px) {
+    .cardInfo__slider {
+        max-width: 300px;
+    }
+}

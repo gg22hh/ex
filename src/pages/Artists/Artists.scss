@@ -1,0 +1,241 @@
+.artists {
+    padding-top: 120px;
+    background: url(../../images/artists/artists-bg.jpg) top no-repeat;
+    background-size: contain;
+    margin-bottom: 50px;
+    min-height: 100vh;
+    .topBar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 18px;
+        margin-bottom: 50px;
+        &__search {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(8px);
+            border-radius: 17px;
+            animation: topBarSearch 1s;
+            &-button {
+                padding: 5px 9px 2px;
+                background-color: #dd0808;
+                border-radius: 50%;
+            }
+            &-input {
+                padding: 4px 12px;
+                outline: unset;
+                font-family: "Inter", sans-serif;
+                color: white;
+                width: 175px;
+            }
+        }
+        &__filter {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            animation: topBarFilter 1s;
+            &-button {
+                color: #787d82;
+                padding: 5px 20px;
+                border-radius: 17px;
+                transition: all 0.3s;
+                &.active {
+                    background-color: #dd0808;
+                    color: white;
+                }
+            }
+        }
+    }
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+    &__filters {
+        width: 250px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        animation: sidebarFilters 1s;
+        &-title {
+            font-size: 24px;
+            line-height: 35px;
+            letter-spacing: 0.05em;
+            color: #ffffff;
+        }
+        &-item {
+            color: #787d82;
+            text-align: left;
+            padding: 6px 26px;
+            border-radius: 17px;
+            transition: all 0.2s;
+            &.active {
+                background: #dd0808;
+                color: white;
+            }
+        }
+    }
+    &__cards {
+        &-list {
+            display: grid;
+            grid-template-columns: repeat(4, 189px);
+            gap: 40px 60px;
+            justify-content: space-between;
+            animation: cardsList 1s;
+            margin-bottom: 45px;
+        }
+        &-empty {
+            color: white;
+            text-align: center;
+            font-size: 40px;
+        }
+        &-pagination {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            justify-content: center;
+            .prev-arrow {
+                margin-right: 75px;
+            }
+            .next-arrow {
+                margin-left: 75px;
+            }
+            .prev-arrow,
+            .next-arrow {
+                display: flex;
+                align-items: center;
+            }
+            .pagination__number {
+                color: #787d82;
+                transition: all 0.3s;
+                padding: 5px 13px;
+                border-radius: 50%;
+                &.active {
+                    background-color: #dd0808;
+                    color: white;
+                }
+                &:hover {
+                    background-color: #dd0808;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+@keyframes topBarSearch {
+    0% {
+        transform: translateX(-200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes topBarFilter {
+    0% {
+        transform: translateX(200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes topBarSort {
+    0% {
+        transform: translateX(200%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes cardsList {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes sidebarFilters {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 1166px) {
+    .artists__cards-list {
+        grid-template-columns: repeat(3, 189px);
+    }
+}
+
+@media (max-width: 910px) {
+    .artists__cards-list {
+        grid-template-columns: repeat(2, 189px);
+    }
+}
+
+@media (min-width: 768px) {
+    .topBar__filter-button:hover {
+        background-color: #dd0808;
+        color: white;
+    }
+    .artists__filters-item:hover {
+        background: #dd0808;
+        color: white;
+    }
+}
+
+@media (max-width: 675px) {
+    .artists {
+        &__content {
+            flex-direction: column;
+            align-items: center;
+        }
+        &__filters {
+            flex-direction: row;
+            overflow: hidden;
+            overflow-x: scroll;
+            white-space: nowrap;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    }
+}
+
+@media (max-width: 620px) {
+    .artists {
+        .topBar {
+            flex-direction: column;
+            gap: 25px;
+            margin-bottom: 25px;
+            &__search-input {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 468px) {
+    .artists {
+        &__cards-list {
+            grid-template-columns: repeat(1, 189px);
+            justify-content: center;
+        }
+        &__filters-item {
+            padding: 3px 15px;
+        }
+        .topBar__filter {
+            gap: 0px;
+            &-button {
+                padding: 3px 15px;
+            }
+        }
+    }
+}
